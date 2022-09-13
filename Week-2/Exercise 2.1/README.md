@@ -1,13 +1,3 @@
-# Exercise 1.2
-
-## In this exercise I create a design of music player using CSS, Html and also use line awesome icon pack and lato font in entire UI.
-
-<br />
-
-### This the view of the web page
-
-![This is an image](Pesto-Week-1-Exercise-1-2.png)
-
 # Exercise 2.1
 
 ## In this exercise I create a design of Blog Page using HTML, Css, display properties like flex, grid, block, content and also use diffrent type of sizing like px,em,rem, I also use some hover effect and css for designing.
