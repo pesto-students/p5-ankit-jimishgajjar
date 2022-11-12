@@ -91,9 +91,7 @@ export default class ToDoContainer extends React.Component {
     this.alertAudio.play();
 
     // State Updates are Merged
-    this.setState({
-      todos: [].concat(updatedItems),
-    });
+    this.setState({todos: updatedItems});
 
     toast.success("Task mark as completed", {
       position: "bottom-center",
@@ -112,9 +110,7 @@ export default class ToDoContainer extends React.Component {
       return item.id !== itemId;
     });
 
-    this.setState({
-      todos: [].concat(updatedItems),
-    });
+    this.setState({todos: updatedItems});
 
     toast.success("Task deleted sucessfully", {
       position: "bottom-center",
@@ -164,7 +160,8 @@ export default class ToDoContainer extends React.Component {
         labelVal: "",
         discriptionVal: "",
         editId: "",
-      });
+        todos: this.state.todos
+        });
 
       toast.success("Task updated sucessfully", {
         position: "bottom-center",
@@ -176,12 +173,10 @@ export default class ToDoContainer extends React.Component {
         progress: undefined,
         theme: "dark",
       });
-
-      return todo;
     }
   };
 
-  TaskUndo = (itemId) => {
+  taskUndo = (itemId) => {
     var undoItems = this.state.todos.map((item) => {
       if (itemId === item.id) item.done = !item.done;
 
@@ -189,9 +184,7 @@ export default class ToDoContainer extends React.Component {
     });
 
     // State Updates are Merged
-    this.setState({
-      todos: [].concat(undoItems),
-    });
+    this.setState({todos: undoItems});
   };
 
   render() {
@@ -264,7 +257,7 @@ export default class ToDoContainer extends React.Component {
                 label={item.label}
                 description={item.description}
                 completed={item.done}
-                onTaskUndo={this.TaskUndo}
+                onTaskUndo={this.taskUndo}
                 onTaskDelete={this.taskDelete}
               />
             );
