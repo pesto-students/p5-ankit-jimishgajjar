@@ -66,17 +66,6 @@ body {
   outline: none;
 }
 
-.toDo .addToDoDiv .btn {
-  font-size: 17px;
-  padding: 7px 10px;
-  border: none;
-  background-color: #3844e5;
-  color: #fff;
-  border-radius: 5px;
-  box-shadow: rgb(50 50 93 / 25%) 0px 13px 27px -5px,
-    rgb(0 0 0 / 30%) 0px 8px 16px -8px;
-}
-
 .toDo .addToDoDiv .btn:disabled {
   opacity: 0.7;
   cursor: not-allowed;
@@ -109,8 +98,9 @@ body {
   align-content: center;
 }
 
-.toDo ul li .label label {
-  width: 100%;
+.toDo ul li .div-actions {
+  display: flex;
+  gap: 10px;
 }
 
 .toDo ul li p {
@@ -121,17 +111,40 @@ body {
   text-decoration: line-through;
 }
 
-.toDo ul li .done {
-  background-color: #41d893;
+.flex {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
-.toDo ul li button {
+button {
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+  font-size: 17px;
+  padding: 7px 7px;
   border: none;
-  padding: 7px 10px;
-  font-size: 1rem;
-  border-radius: 5px;
-  background-color: #d53f29;
+  background-color: #3844e5;
   color: #fff;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  border-radius: 5px;
+  box-shadow: rgb(50 50 93 / 25%) 0px 13px 27px -5px,
+    rgb(0 0 0 / 30%) 0px 8px 16px -8px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+button.success {
+  background-color: #41d893;
+}
+button.danger {
+  background-color: #d53f29;
+}
+button.warning {
+  background-color: rgb(255, 194, 0);
+}
+button.info {
+  background-color: rgb(8, 66, 152);
 }

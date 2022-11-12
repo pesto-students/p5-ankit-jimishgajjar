@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { BiCheckDouble, BiX, BiTrash } from "react-icons/bi";
+import { BiCheckDouble, BiPencil, BiX, BiTrash } from "react-icons/bi";
 
 const TaskItem = (props) => {
   const taskComplete = () => {
@@ -14,6 +14,10 @@ const TaskItem = (props) => {
     props.onTaskUndo(props.id);
   }
 
+  function taskEdit() {
+    props.onTaskEdit(props.id);
+  }
+
   let description;
   if (props.description) {
     description = <p>{props.description}</p>;
@@ -25,21 +29,26 @@ const TaskItem = (props) => {
         <label>{props.label}</label>
         {props.completed ? (
           <>
-            <button
-              className="delete"
-              onClick={taskUndo}
-              style={{ marginRight: "10px", backgroundColor: "#084298" }}
-            >
-              <BiX />
-            </button>
-            <button className="delete" onClick={taskDelete}>
-              <BiTrash />
-            </button>
+            <div className="div-actions">
+              <button className="info" onClick={taskUndo}>
+                <BiX />
+              </button>
+              <button className="danger" onClick={taskDelete}>
+                <BiTrash />
+              </button>
+            </div>
           </>
         ) : (
-          <button className="done" onClick={taskComplete}>
-            <BiCheckDouble />
-          </button>
+          <>
+            <div className="div-actions">
+              <button className="warning" onClick={taskEdit}>
+                <BiPencil />
+              </button>
+              <button className="success" onClick={taskComplete}>
+                <BiCheckDouble />
+              </button>
+            </div>
+          </>
         )}
       </div>
       {description}
@@ -50,7 +59,11 @@ const TaskItem = (props) => {
 TaskItem.propTypes = {
   label: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  completed: PropTypes.bool.isRequired
+  completed: PropTypes.bool.isRequired,
+  onTaskComplete: PropTypes.func.isRequired,
+  onTaskDelete: PropTypes.func.isRequired,
+  onTaskUndo: PropTypes.func.isRequired,
+  onTaskEdit: PropTypes.func.isRequired
 };
 
 export default TaskItem;
