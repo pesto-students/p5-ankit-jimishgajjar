@@ -1,77 +1,55 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import "./styles.css";
-import icon from "../../assets/download.svg";
+import icon from "../../assets/icon.svg";
+import InputComponent from "../../components/InputComponent";
+import ShortedUrl from "../../components/ShortedUrl";
 import copy from "copy-text-to-clipboard";
 
 function Home() {
-  const [urlInput, setUrlInput] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [urlValidate, setUrlValidate] = useState(false);
-  const [shortedUrls, setShortedUrls] = useState({
-    code: "",
-    short_link: "",
-    full_short_link: "",
-    short_link2: "",
-    full_short_link2: "",
-    short_link3: "",
-    full_short_link3: "",
-    share_link: "",
-    full_share_link: "",
-    original_link: "",
+  const [urlInput, setUrlInput] = useState({
+    inputUrl: "",
+    urlValidate: false,
+    response: null,
+    loading: false,
+    urlCopy: false
   });
 
-  const { urlCopied, setUrlCopy } = useState(false);
+  const inputOnChange = (e) => {
+    urlInput.inputUrl = e.target.value;
+    setUrlInput({ ...urlInput });
 
-  const urlChange = (evt) => {
-    setUrlInput(evt.target.value);
-
-    var expression =
-      /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+    var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
     var regex = new RegExp(expression);
 
-    if (urlInput.match(regex)) {
-      setUrlValidate(true);
+    if (urlInput.inputUrl !== "" && urlInput.inputUrl.match(regex)) {
+      urlInput.urlValidate = true;
+      setUrlInput({ ...urlInput });
     } else {
-      setUrlValidate(false);
+      urlInput.urlValidate = false;
+      setUrlInput({ ...urlInput });
     }
-
-    // let validateLabel;
-    // if (urlValidate === true) {
-    //   validateLabel = (
-    //     <label className="input-label-valid">Enter url is valid.</label>
-    //   );
-    // }
-    // if (urlValidate === false) {
-    //   validateLabel = (
-    //     <label className="input-label-invalid">Enter url is invalid.</label>
-    //   );
-    // }
   };
 
   const genrateShortUrl = async () => {
-    if (urlValidate) {
+    if (urlInput.urlValidate) {
       try {
-        setLoading(true);
+        urlInput.loading = true;
+        setUrlInput({ ...urlInput });
         let urlData = await fetch(
-          `https://api.shrtco.de/v2/shorten?url=${urlInput}`
+          `https://api.shrtco.de/v2/shorten?url=${urlInput.inputUrl}`
         );
         const response = await urlData.json();
         if (response.ok === true) {
-          setShortedUrls({
-            code: response.result.code,
-            short_link: response.result.short_link,
-            full_short_link: response.result.full_short_link,
-            short_link2: response.result.short_link2,
-            full_short_link2: response.result.full_short_link2,
-            short_link3: response.result.short_link3,
-            full_short_link3: response.result.full_short_link3,
-            share_link: response.result.share_link,
-            full_share_link: response.result.full_share_link,
-            original_link: response.result.original_link,
+          setUrlInput({
+            response: response.result,
+            loading: false,
+            inputUrl: "",
+            urlValidate: false
           });
-          setLoading(false);
-          setUrlInput("");
+        } else {
+          urlInput.loading = false;
+          setUrlInput({ ...urlInput });
         }
       } catch (error) {
         console.log(error);
@@ -80,8 +58,14 @@ function Home() {
   };
 
   function copyUrl() {
-    copy(shortedUrls.short_link);
-    setUrlCopy(false);
+    copy(urlInput.response.short_link);
+    urlInput.urlCopy = true;
+    setUrlInput({ ...urlInput });
+
+    setInterval(() => {
+      urlInput.urlCopy = false;
+      setUrlInput({ ...urlInput });
+    }, 5000);
   }
 
   return (
@@ -100,16 +84,18 @@ function Home() {
       </div>
       <div className="short-link">
         <div className="input-box">
-          <input
-            type="text"
-            className="input"
-            placeholder="Enter Url To Shorten"
-            onChange={urlChange}
-            value={urlInput}
+          <InputComponent
+            inputChange={inputOnChange}
+            inputValue={urlInput.inputUrl}
+            inputValidte={urlInput.urlValidate}
           />
         </div>
-        <button onClick={genrateShortUrl} disabled={urlValidate === false}>
-          {loading ? (
+        <button
+          className="btn"
+          onClick={genrateShortUrl}
+          disabled={urlInput.urlValidate === false}
+        >
+          {urlInput.loading ? (
             <>
               <i
                 className="fa fa-refresh fa-spin"
@@ -125,32 +111,12 @@ function Home() {
 
       <div className="shorten">
         <div className="item">
-          {!shortedUrls.short_link ? (
-            <>
-              <div className="shorted-link-blank">
-                <h3>
-                  {loading ? (
-                    <i
-                      className="fa fa-refresh fa-spin"
-                      style={{ marginRight: "5px" }}
-                    />
-                  ) : (
-                    <span>Enter Url To Short</span>
-                  )}
-                </h3>
-              </div>
-            </>
-          ) : (
-            <>
-              <div className="shorted-link">
-                <h4>{shortedUrls.original_link}</h4>
-                <h4>{shortedUrls.short_link}</h4>
-                <button onClick={copyUrl}>
-                  {urlCopied ? "Copied !" : "Copy"}
-                </button>
-              </div>
-            </>
-          )}
+          <ShortedUrl
+            urlData={urlInput.response}
+            loading={urlInput.loading}
+            textCopy={urlInput.urlCopy}
+            onCopy={copyUrl}
+          />
         </div>
       </div>
     </>
