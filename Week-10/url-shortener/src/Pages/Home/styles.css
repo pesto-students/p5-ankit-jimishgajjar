@@ -1,0 +1,141 @@
+.home-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .home-content img {
+    width: 400px;
+    height: 400px;
+  }
+  
+  .home-content h1 {
+    font-size: 5rem;
+  }
+  
+  .home-content p {
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    font-weight: 500;
+  }
+  
+  .short-link {
+    display: flex;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    background-color: #cbf0f8;
+    padding: 20px;
+    border-radius: 10px;
+    align-items: flex-start;
+  }
+  
+  .short-link .input-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .short-link .input {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px;
+    border: 1px solid #032348;
+    border-radius: 7px;
+    outline: none;
+  }
+  
+  .short-link .input-invalid {
+    border: 1px solid #ff0000;
+  }
+  
+  .short-link .input-valid {
+    border: 1px solid green;
+  }
+  
+  .short-link .input-box .input-label-invalid {
+    margin-top: 7px;
+    color: red;
+  }
+  
+  .short-link .input-box .input-label-valid {
+    margin-top: 7px;
+    color: green;
+  }
+  
+  .short-link button {
+    width: 270px;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px;
+    border: none;
+    outline: none;
+    color: #fff;
+    border-radius: 10px;
+    background-color: #032348;
+    cursor: pointer;
+  }
+  
+  .short-link button:hover {
+    background-color: #df622c;
+  }
+  
+  .short-link button:disabled {
+    opacity: 0.7;
+  }
+  
+  .shorten .item {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #d1e7dd;
+    box-shadow: rgb(0 0 0 / 30%) 0px 19px 38px, rgb(0 0 0 / 22%) 0px 15px 12px;
+  }
+  
+  .shorten .item .shorted-link {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    color: #032348;
+    background-color: #88d9b4;
+    border: 2px dashed #069f59;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px;
+  }
+  
+  .shorten .item .shorted-link button {
+    width: 100px;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px;
+    border: none;
+    outline: none;
+    color: #fff;
+    border-radius: 10px;
+    background-color: #069f59;
+    cursor: pointer;
+  }
+  
+  .shorten .item .shorted-link-blank {
+    color: #032348;
+    background-color: #88d9b4;
+    border: 2px dashed #069f59;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .shorten .item .shorted-link-blank h3 {
+    padding: 10px;
+  }
+  
