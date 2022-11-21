@@ -1,0 +1,32 @@
+.step-count {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn {
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-add {
+  background-color: #ffa500;
+  color: #ffffff;
+}
+
+.btn-add:hover {
+  background-color: #1ab394;
+}
+
+.btn-reset {
+  background-color: #d0d0d0;
+}
+
+.btn-reset:hover {
+  background-color: #263238;
+  color: #ffffff;
+}
