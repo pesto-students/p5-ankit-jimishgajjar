@@ -1,12 +1,6 @@
 import { createStore } from "redux";
+import { switchReducer } from "./redusers";
 
-const reduseerFn = (state = { isLightOn: true }, action) => {
-  if (action.type === "SWITCH") {
-    return { isLightOn: !state.isLightOn };
-  }
-  return state;
-};
-
-const store = createStore(reduseerFn);
+const store = createStore(switchReducer);
 
 export default store;

@@ -1,15 +1,16 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { actions } from "../redux/actions";
 import "./styles.css";
 
 function App() {
   document.title = "Redux Exercise 1";
-  
+
   const isLightOn = useSelector((state) => state.isLightOn);
   const dispatch = useDispatch();
 
   const flipLight = () => {
-    dispatch({ type: "SWITCH" });
+    dispatch({ type: actions.SWITCH });
   };
 
   const lightedness = isLightOn ? "lit" : "dark";
