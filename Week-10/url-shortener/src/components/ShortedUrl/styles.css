@@ -1,0 +1,59 @@
+.shorted-link {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  color: #032348;
+  background-color: #88d9b4;
+  border: 2px dashed #069f59;
+  border-radius: 5px;
+  text-align: center;
+  padding: 5px;
+}
+
+.shorted-link-blank {
+  color: #032348;
+  background-color: #88d9b4;
+  border: 2px dashed #069f59;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.shorted-link-blank h3 {
+  padding: 10px;
+}
+
+.shorted-link button {
+  width: 150px;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px;
+  border: none;
+  outline: none;
+  color: #fff;
+  border-radius: 10px;
+  background-color: #263238;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .shorted-link {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .shorted-link {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .shorted-link button {
+    width: 100% !important;
+  }
+}

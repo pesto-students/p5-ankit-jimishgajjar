@@ -1,0 +1,189 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.box {
+  height: 250px;
+  width: 250px;
+  background-color: aqua;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.text {
+  font-size: 70px;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+
+.sq1,
+.sq2,
+.sq3,
+.sq4 {
+  height: 125px;
+  width: 125px;
+}
+.sq1 {
+  background-color: cornflowerblue;
+  transform-origin: top left;
+  transition-duration: 1s;
+  transition-timing-function: linear;
+  position: relative;
+}
+.box:hover .text span {
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.box:hover .sq1 {
+  transform: rotate(90deg);
+  animation-name: example1;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.sq2 {
+  background-color: tomato;
+  transform-origin: top right;
+  transition-duration: 1s;
+  transition-timing-function: linear;
+  position: relative;
+}
+.box:hover .sq2 {
+  transform: rotate(-90deg);
+  animation-name: example2;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.sq3 {
+  background-color: darkgoldenrod;
+  transform-origin: bottom left;
+  transition-duration: 1s;
+  transition-timing-function: linear;
+  position: relative;
+}
+.box:hover .sq3 {
+  transform: rotate(-90deg);
+  animation-name: example3;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.sq4 {
+  background-color: brown;
+  transform-origin: bottom right;
+  transition-duration: 1s;
+  transition-timing-function: linear;
+  position: relative;
+}
+.box:hover .sq4 {
+  transform: rotate(90deg);
+  animation-name: example4;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+@keyframes example1 {
+  0% {
+    background-color: brown;
+  }
+  25% {
+    background-color: darkgoldenrod;
+  }
+  50% {
+    background-color: tomato;
+  }
+  100% {
+    background-color: cornflowerblue;
+  }
+}
+
+@keyframes example2 {
+  0% {
+    background-color: darkgoldenrod;
+  }
+  25% {
+    background-color: tomato;
+  }
+  50% {
+    background-color: cornflowerblue;
+  }
+  100% {
+    background-color: brown;
+  }
+}
+
+@keyframes example3 {
+  0% {
+    background-color: tomato;
+  }
+  25% {
+    background-color: cornflowerblue;
+  }
+  50% {
+    background-color: brown;
+  }
+  100% {
+    background-color: darkgoldenrod;
+  }
+}
+
+@keyframes example4 {
+  0% {
+    background-color: cornflowerblue;
+  }
+  25% {
+    background-color: brown;
+  }
+  50% {
+    background-color: darkgoldenrod;
+  }
+  100% {
+    background-color: tomato;
+  }
+}

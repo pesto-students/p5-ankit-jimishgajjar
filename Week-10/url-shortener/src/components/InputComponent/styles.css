@@ -1,0 +1,53 @@
+.input {
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px;
+  border: 1px solid #032348;
+  border-radius: 7px;
+  outline: none;
+}
+
+.input-invalid {
+  border: 1px solid #ff0000;
+}
+
+.input-valid {
+  border: 1px solid green;
+}
+
+.label-invalid {
+  margin-top: 7px;
+  color: red;
+}
+
+.label-valid {
+  margin-top: 7px;
+  color: green;
+}
+
+.btn {
+  width: 270px;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px;
+  border: none;
+  outline: none;
+  color: #fff;
+  border-radius: 10px;
+  background-color: #032348;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #df622c;
+}
+
+.btn:disabled {
+  opacity: 0.7;
+}
+
+@media screen and (max-width: 600px) {
+  .btn {
+    width: 100%;
+  }
+}
