@@ -1,0 +1,168 @@
+* {
+  font-family: "Lato", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  padding: 0px;
+  margin: 0px;
+}
+
+.sidebar-nav {
+  position: absolute;
+  height: 100%;
+  background-color: #f0f0f0;
+}
+
+.sidebar-nav ul li {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  height: 70px;
+}
+
+.sidebar-nav ul li a {
+  padding: 1rem;
+}
+
+main {
+  width: 100%;
+}
+
+main .header {
+  width: 100%;
+  height: 300px;
+  background-color: #454545;
+  color: #fff;
+}
+
+main .header .header-main {
+  margin-left: 5rem;
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: flex-start;
+}
+
+main .header .header-main img {
+  height: 235px;
+  width: 235px;
+}
+
+main .header .header-main .header-disc {
+  width: 100%;
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  align-content: center;
+  justify-content: space-between;
+}
+
+main .header .header-main .header-disc h2 {
+  margin-bottom: 1rem;
+}
+
+main .header .header-main .header-disc .font-weight {
+  font-weight: 500;
+}
+
+main .header .header-main .header-disc .controls a {
+  text-decoration: none;
+  color: #fff;
+  margin-right: 1rem;
+}
+
+main .header .header-main .header-disc .controls a i {
+  margin-right: 0.2rem;
+}
+
+main .main-table {
+  margin-left: 3.5rem;
+  margin-top: 1rem;
+}
+
+main .main-table table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+main .main-table th,
+main .main-table td {
+  text-align: left;
+  padding: 12px;
+}
+
+main .main-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+main .player {
+  position: absolute;
+  height: 100px;
+  width: 100%;
+  background-color: #43689b;
+  bottom: 0px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+}
+
+main .player img {
+  padding: 0.4rem;
+}
+
+main .player .info {
+  color: #fff;
+  width: 100%;
+  padding: 0.4rem;
+}
+main .player .info h4 {
+  font-weight: 550;
+  margin-bottom: 0.7rem;
+}
+
+main .player .player-btn {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  align-items: center;
+  justify-content: space-between;
+}
+
+main .player .player-btn a {
+  color: #fff;
+  width: 150px;
+  text-align: center;
+}
+
+main .player .player-btn i {
+  font-size: 2rem;
+}

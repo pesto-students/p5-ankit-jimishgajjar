@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Fragment+Mono&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,800;1,900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Fragment Mono", monospace;
+  /* font-family: "Prompt", sans-serif; */
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  align-items: center;
+  justify-content: space-around;
+  background-color: white;
+  padding: 10px 0;
+}
+
+.nav ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.nav ul li {
+  list-style: none;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.nav .logo h2 {
+  font-size: 25px;
+  font-weight: 900;
+}
+
+.main {
+  background-color: #f0f1f5;
+}
+
+.main .content {
+  padding-right: 10%;
+  padding-left: 10%;
+  padding-top: 10px;
+  padding-bottom: 60px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media screen and (max-width: 600px) {
+  .main .content {
+    padding-right: 5%;
+    padding-left: 5%;
+  }
+}
